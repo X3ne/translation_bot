@@ -15,7 +15,6 @@ module.exports.run = async (client, msg, args, prefix) => {
     const channel = msg.guild.channels.cache.find((c) => c.id === args[i]);
     if (channel.type === 'GUILD_VOICE') return ErrorEmbed(msg, '**You can\'t use voice channels as translations**');
     if (!channel) return ErrorEmbed(msg, '**Invalid channel id**');
-    // if (chan)
     if (!channel.permissionsFor(client.user).has(Discord.Permissions.FLAGS.SEND_MESSAGES)) return ErrorEmbed(msg, '**I need the `Send Messages` permission to send messages in this channel!**');
     if (array.indexOf(channel.id) > -1) return ErrorEmbed(msg, '**You can\'t use the same channel twice**');
     array.push(channel.id);

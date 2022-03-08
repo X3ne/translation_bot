@@ -40,7 +40,7 @@ module.exports.run = async (client, msg, args, prefix) => {
   const user = await usersDb.Fetch(msg.author.id);
   if (availableLanguages.indexOf(lang) < 0) {
     lang = user.lang;
-    message = args.slice(0).join(' ');
+    message = args.join(' ');
   } else {
     message = args.slice(1).join(' ');
   }
@@ -78,7 +78,7 @@ module.exports.run = async (client, msg, args, prefix) => {
 module.exports.help = {
   name: 'translate',
   aliases: ['ts'],
-  description: 'translate a message or text',
+  description: 'Translate a message or text',
   usage: 'translate <lang> [text or message id to translate]',
   category: 'Utility',
 };

@@ -1,8 +1,8 @@
-# Discord-Bot-Template
+# Discord translation bot
 
-## Discord bot template for discord.js v13
+## Discord translation bot for discord.js v13
 
-__Just add your .env with your token and prefix__
+__Just add your .env with your token, prefix and deepl api key__
 
 ### .env example
 ```

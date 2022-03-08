@@ -37,9 +37,7 @@ module.exports.run = async (client, msg, args, prefix) => {
 
     const info = `**Aucune information trouvée pour cette commande \`${input.toLowerCase()}\`**`;
 
-    if (!cmd) {
-      return ErrorEmbed(msg, info);
-    }
+    if (!cmd) return ErrorEmbed(msg, info);
 
     const cname = cmd.help.name;
     if (cmd.help.aliases.length < 1) caliases = 'None';

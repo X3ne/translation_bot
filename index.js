@@ -64,7 +64,7 @@ client.on('messageCreate', async (msg) => {
   if (msg.channel.type === 'dm') return;
 
   // prefix
-  const { prefix } = process.env;
+  const prefix = process.env.PREFIX;
 
   // Commands
   const args = msg.content.slice(prefix.length).trim().split(' ');
@@ -99,6 +99,7 @@ client.on('messageCreate', async (msg) => {
 
       msg.channel.send({ embeds: [embed] });
     });
+    return;
   }
 
   // Exec command
