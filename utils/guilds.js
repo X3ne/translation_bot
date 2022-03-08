@@ -34,7 +34,7 @@ async function _SetTranslateChannels(GuildID, toSet) {
   if (!GuildID || toSet == undefined) throw new Error('SetTranslateChannels function is missing parameters!');
   return new Promise(async (resolve, error) => {
     const Info = await DB.update({
-      lang: toSet,
+      channelsId: toSet,
     }, {
       where: {
         guildID: GuildID,
