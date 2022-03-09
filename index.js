@@ -77,14 +77,15 @@ client.on('messageCreate', async (msg) => {
     if (!guild.channelsId) return;
     const channels = guild.channelsId.split(',');
     if (!channels.includes(msg.channel.id)) return;
-    if (lngDetector.detect(msg.content, 1)[0][0] === 'french') return;
+    const detect = lngDetector.detect(msg.content, 1);
+    if (!detect[0] || detect[0][0] === 'french') return;
     translate({
       free_api: true,
       text: msg.content,
       target_lang: 'FR',
       auth_key: process.env.DEEPL_KEY,
     }).then((res) => {
-      if (res.data.translations[0].detected_source_language === 'fr') return;
+      if (res.data.translations[0].detected_source_language === 'FR') return;
       const embed = new MessageEmbed()
         .setColor('GREEN')
         .setDescription(`\`\`\`${res.data.translations[0].text}\`\`\``)

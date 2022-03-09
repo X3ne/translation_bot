@@ -49,7 +49,7 @@ async function _SetTranslateChannels(GuildID, toSet) {
     try {
       const Info2 = await DB.create({
         guildID: GuildID,
-        channelsId: null,
+        channelsId: toSet,
       });
       return resolve({
         guildid: GuildID,

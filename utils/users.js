@@ -49,7 +49,7 @@ async function _SetLang(UserID, toSet) {
     try {
       const Info2 = await DB.create({
         userID: UserID,
-        lang: 'FR',
+        lang: toSet,
       });
       return resolve({
         userid: UserID,
